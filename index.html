@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KARTEL69 — Official Links</title>
+<meta name="description" content="KARTEL69 — Official Links">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #060609;
+  --panel: rgba(20, 20, 28, .58);
+  --panel-hover: rgba(35, 29, 21, .8);
+  --gold: #d6ad54;
+  --gold-light: #f5e2a5;
+  --blue: #4c7fff;
+  --text: #f7f5ef;
+  --text-soft: rgba(247, 245, 239, .65);
+  --text-dim: rgba(247, 245, 239, .4);
+  --border: rgba(255, 255, 255, .12);
+  --title-font: "Space Grotesk", sans-serif;
+  --body-font: "Inter", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 35px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  color: var(--text);
+  font-family: var(--body-font);
+  background: var(--bg);
+}
+
+/* INTRO SCREEN */
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle, rgba(214, 173, 84, .15), transparent 35%),
+    #060609;
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+.intro.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.intro-content {
+  text-align: center;
+  animation: introZoom 1s cubic-bezier(.16, .8, .32, 1) both;
+}
+
+.intro-logo {
+  width: 105px;
+  height: 105px;
+  margin: 0 auto 20px;
+  display: grid;
+  place-items: center;
+  color: var(--gold-light);
+  border: 1px solid rgba(214, 173, 84, .6);
+  border-radius: 50%;
+  font: 700 2.4rem var(--title-font);
+  box-shadow: 0 0 40px rgba(214, 173, 84, .25);
+  animation: logoPulse 2s ease-in-out infinite;
+}
+
+.intro-title {
+  margin: 0;
+  color: var(--text);
+  letter-spacing: .2em;
+  font: 700 1.1rem var(--title-font);
+}
+
+.loader {
+  width: 130px;
+  height: 2px;
+  margin: 18px auto 0;
+  overflow: hidden;
+  background: rgba(255, 255, 255, .15);
+  border-radius: 100px;
+}
+
+.loader::after {
+  content: "";
+  display: block;
+  width: 45%;
+  height: 100%;
+  background: var(--gold);
+  box-shadow: 0 0 15px var(--gold);
+  animation: loading 1.4s ease-in-out infinite;
+}
+
+/* BACKGROUND */
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(214, 173, 84, .05),
+      transparent 35%,
+      rgba(76, 127, 255, .06),
+      transparent 70%
+    );
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(214, 173, 84, .2),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(76, 127, 255, .15),
+      transparent 30%
+    );
+  animation: backgroundMove 18s ease-in-out infinite alternate;
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .12;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+  background-size: 70px 70px;
+}
+
+.orb {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  filter: blur(45px);
+  opacity: .25;
+  animation: orbFloat 18s ease-in-out infinite;
+}
+
+.orb.gold {
+  top: 7%;
+  left: -90px;
+  background: var(--gold);
+}
+
+.orb.blue {
+  right: -100px;
+  bottom: 8%;
+  background: var(--blue);
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.orb.small {
+  left: 35%;
+  bottom: -160px;
+  width: 210px;
+  height: 210px;
+  background: var(--gold);
+  animation-delay: -12s;
+  animation-duration: 28s;
+}
+
+.particles {
+  position: absolute;
+  inset: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 12px var(--gold);
+  animation: particleMove linear infinite;
+}
+
+.particle:nth-child(1) {
+  left: 8%;
+  top: 20%;
+  animation-duration: 9s;
+}
+
+.particle:nth-child(2) {
+  left: 25%;
+  top: 75%;
+  animation-duration: 13s;
+}
+
+.particle:nth-child(3) {
+  left: 42%;
+  top: 15%;
+  animation-duration: 11s;
+}
+
+.particle:nth-child(4) {
+  left: 65%;
+  top: 70%;
+  animation-duration: 15s;
+}
+
+.particle:nth-child(5) {
+  left: 82%;
+  top: 20%;
+  animation-duration: 10s;
+}
+
+.particle:nth-child(6) {
+  left: 92%;
+  top: 55%;
+  animation-duration: 17s;
+}
+
+/* KONTEN */
+.page {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  opacity: 0;
+  transform: translateY(25px);
+  animation: pageReveal 1s .8s forwards;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 34px;
+  text-align: center;
+}
+
+.avatar {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 20px;
+  padding: 4px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--gold),
+    var(--gold-light),
+    var(--blue),
+    var(--gold),
+    var(--gold-light),
+    var(--gold)
+  );
+  box-shadow: 0 0 35px rgba(214, 173, 84, .25);
+  animation:
+    avatarReveal 1s 1s both,
+    rotate 15s linear 2s infinite;
+}
+
+.avatar-inner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--gold-light);
+  background: #0e0e14;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font: 700 2.5rem var(--title-font);
+}
+
+.name {
+  margin: 0;
+  font: 700 1.65rem var(--title-font);
+  animation: textReveal .8s 1.2s both;
+}
+
+.handle {
+  margin: 5px 0 0;
+  color: var(--gold);
+  font-size: .92rem;
+  font-weight: 600;
+  animation: textReveal .8s 1.35s both;
+}
+
+.tagline {
+  max-width: 280px;
+  margin: 10px 0 0;
+  color: var(--text-soft);
+  font-size: .9rem;
+  line-height: 1.5;
+  animation: textReveal .8s 1.5s both;
+}
+
+/* LINK CARD */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 76px;
+  padding: 16px 18px;
+  overflow: hidden;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  opacity: 0;
+  transform: translateY(25px) scale(.96);
+  animation: cardReveal .75s calc(1.7s + var(--i) * .14s) forwards;
+  transition: .3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(255, 255, 255, .13) 50%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform .7s ease;
+}
+
+.card:hover::before {
+  transform: translateX(120%);
+}
+
+.card:hover {
+  transform: translateY(-5px) scale(1.025);
+  background: var(--panel-hover);
+  border-color: rgba(214, 173, 84, .65);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, .5),
+    0 0 28px rgba(214, 173, 84, .15);
+}
+
+.card:active {
+  transform: scale(.98);
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  color: var(--gold-light);
+  background: rgba(214, 173, 84, .18);
+  border-radius: 15px;
+  transition: transform .3s ease;
+}
+
+.card:hover .icon {
+  transform: rotate(-7deg) scale(1.1);
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card-title {
+  font-size: .98rem;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  color: var(--text-soft);
+  font-size: .82rem;
+}
+
+.arrow {
+  position: relative;
+  z-index: 1;
+  color: var(--text-dim);
+  font-size: 1.3rem;
+  transition: .3s ease;
+}
+
+.card:hover .arrow {
+  color: var(--gold);
+  transform: translateX(4px);
+}
+
+.footer {
+  margin-top: 32px;
+  color: var(--text-dim);
+  font-size: .76rem;
+  line-height: 1.6;
+  text-align: center;
+  animation: textReveal .8s 2.3s both;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* ANIMASI */
+@keyframes introZoom {
+  from {
+    opacity: 0;
+    transform: scale(.75);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logoPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(214, 173, 84, .2);
+  }
+
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 50px rgba(214, 173, 84, .4);
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-150%);
+  }
+
+  50%, 100% {
+    transform: translateX(300%);
+  }
+}
+
+@keyframes backgroundMove {
+  from {
+    transform: translate(-3%, -2%) scale(1);
+  }
+
+  to {
+    transform: translate(3%, 2%) rotate(5deg) scale(1.12);
+  }
+}
+
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(35px, -30px) scale(1.12);
+  }
+}
+
+@keyframes particleMove {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(.5);
+  }
+
+  20%, 80% {
+    opacity: .6;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-110px) scale(1.2);
+  }
+}
+
+@keyframes pageReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes avatarReveal {
+  from {
+    opacity: 0;
+    transform: scale(.7) rotate(-20deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 360px) {
+  body {
+    padding-inline: 14px;
+  }
+
+  .avatar {
+    width: 108px;
+    height: 108px;
+  }
+
+  .name {
+    font-size: 1.4rem;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .intro {
+    display: none;
+  }
+
+  .page,
+  .card {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro" id="intro">
+  <div class="intro-content">
+    <div class="intro-logo">K</div>
+    <h2 class="intro-title">KARTEL69</h2>
+    <div class="loader"></div>
+  </div>
+</div>
+
+<div class="background">
+  <div class="orb gold"></div>
+  <div class="orb blue"></div>
+  <div class="orb small"></div>
+
+  <div class="particles">
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+    <span class="particle"></span>
+  </div>
+</div>
+
+<main class="page">
+
+  <header class="profile">
+    <div class="avatar">
+      <div class="avatar-inner" id="avatar">K</div>
+    </div>
+
+    <h1 class="name" id="brandName">KARTEL69</h1>
+    <p class="handle" id="username">@kartel69</p>
+    <p class="tagline" id="tagline">OFFICIAL KARTEL 69</p>
+  </header>
+
+  <nav class="links" aria-label="Official links">
+
+    <a class="card" style="--i:0" id="whatsappLink" href="#" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M4 12c0-4.4 3.8-8 8.4-8 4.6 0 8.4 3.6 8.4 8 0 4.4-3.8 8-8.4 8-1 0-2-.15-2.9-.45L5 21l1.3-3.9C4.8 15.8 4 14 4 12z"/>
+          <circle cx="8.7" cy="12" r=".9" fill="currentColor"/>
+          <circle cx="12.4" cy="12" r=".9" fill="currentColor"/>
+          <circle cx="16.1" cy="12" r=".9" fill="currentColor"/>
+        </svg>
+      </span>
+
+      <span class="card-content">
+        <span class="card-title">WhatsApp Group</span>
+        <span class="card-subtitle">Join our official community</span>
+      </span>
+
+      <span class="arrow">›</span>
+    </a>
+
+    <a class="card" style="--i:1" id="websiteLink" href="#" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12h18"/>
+          <path d="M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9s1.3-6.4 3.8-9z"/>
+        </svg>
+      </span>
+
+      <span class="card-content">
+        <span class="card-title">Official Website</span>
+        <span class="card-subtitle">Visit our official website</span>
+      </span>
+
+      <span class="arrow">›</span>
+    </a>
+
+    <a class="card" style="--i:2" id="adminLink" href="#" target="_blank" rel="noopener">
+      <span class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+          <path d="M4 13v-1a8 8 0 0 1 16 0v1"/>
+          <rect x="3" y="13" width="4" height="6" rx="1.5"/>
+          <rect x="17" y="13" width="4" height="6" rx="1.5"/>
+          <path d="M20 19v1a3 3 0 0 1-3 3h-3"/>
+        </svg>
+      </span>
+
+      <span class="card-content">
+        <span class="card-title">Admin Contact</span>
+        <span class="card-subtitle">Contact our admin</span>
+      </span>
+
+      <span class="arrow">›</span>
+    </a>
+
+  </nav>
+
+  <footer class="footer">
+    <p>© 2026 <span id="footerName">KARTEL69</span>. All rights reserved.</p>
+    <p>Powered by <span id="footerNameTwo">KARTEL69</span></p>
+  </footer>
+
+</main>
+
+<script>
+const CONFIG = {
+  brandName: "KARTEL69",
+  username: "@kartel69",
+  tagline: "OFFICIAL KARTEL 69",
+
+  avatarInitial: "K",
+  avatarImageUrl: "",
+
+  whatsappGroupUrl: "https://chat.whatsapp.com/BYxn2Qy1LeRE9d7QaidfSh?s=cl&p=a&mlu=4&ilr=4",
+  websiteUrl: "https://pafimalang.org/register?referral=jonathannn",
+
+  adminWhatsappNumber: "0855762143850",
+  adminWhatsappMessage: "Halo, saya ingin mengetahui lebih lanjut tentang KARTEL69."
+};
+
+const brandName = document.getElementById("brandName");
+const username = document.getElementById("username");
+const tagline = document.getElementById("tagline");
+const avatar = document.getElementById("avatar");
+
+brandName.textContent = CONFIG.brandName;
+username.textContent = CONFIG.username;
+tagline.textContent = CONFIG.tagline;
+
+document.getElementById("footerName").textContent = CONFIG.brandName;
+document.getElementById("footerNameTwo").textContent = CONFIG.brandName;
+document.title = `${CONFIG.brandName} — Official Links`;
+
+if (CONFIG.avatarImageUrl) {
+  avatar.style.backgroundImage = `url("${CONFIG.avatarImageUrl}")`;
+  avatar.style.backgroundSize = "cover";
+  avatar.style.backgroundPosition = "center";
+  avatar.textContent = "";
+} else {
+  avatar.textContent = CONFIG.avatarInitial;
+}
+
+document.getElementById("whatsappLink").href =
+  CONFIG.whatsappGroupUrl;
+
+document.getElementById("websiteLink").href =
+  CONFIG.websiteUrl;
+
+const adminNumber = CONFIG.adminWhatsappNumber.replace(/\D/g, "");
+const adminMessage = CONFIG.adminWhatsappMessage
+  ? `?text=${encodeURIComponent(CONFIG.adminWhatsappMessage)}`
+  : "";
+
+document.getElementById("adminLink").href =
+  `https://wa.me/${adminNumber}${adminMessage}`;
+
+/* Intro screen */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("intro").classList.add("hide");
+  }, 1500);
+});
+
+/* Efek ripple */
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", function(event) {
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement("span");
+
+    ripple.style.position = "absolute";
+    ripple.style.left = `${event.clientX - rect.left}px`;
+    ripple.style.top = `${event.clientY - rect.top}px`;
+    ripple.style.width = "10px";
+    ripple.style.height = "10px";
+    ripple.style.borderRadius = "50%";
+    ripple.style.background = "rgba(245, 226, 165, .5)";
+    ripple.style.pointerEvents = "none";
+    ripple.style.transform = "translate(-50%, -50%) scale(0)";
+    ripple.style.animation = "ripple .7s ease-out forwards";
+
+    this.appendChild(ripple);
+
+    setTimeout(() => {
+      ripple.remove();
+    }, 700);
+  });
+});
+
+/* Parallax ringan */
+const page = document.querySelector(".page");
+
+if (window.matchMedia("(pointer: fine)").matches) {
+  document.addEventListener("mousemove", (event) => {
+    const x = (event.clientX / window.innerWidth - .5) * 2;
+    const y = (event.clientY / window.innerHeight - .5) * 2;
+
+    page.style.transform =
+      `perspective(1000px) rotateY(${x * 1.2}deg) rotateX(${y * -1.2}deg)`;
+  });
+
+  document.addEventListener("mouseleave", () => {
+    page.style.transform =
+      "perspective(1000px) rotateY(0deg) rotateX(0deg)";
+  });
+}
+</script>
+
+<style>
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(35);
+  }
+}
+</style>
+
+</body>
+</html>
