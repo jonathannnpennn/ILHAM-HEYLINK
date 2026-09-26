@@ -1,820 +1,882 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>KARTEL69 — Official Links</title>
-<meta name="description" content="KARTEL69 — Official Links">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --bg: #060609;
-  --panel: rgba(20, 20, 28, .58);
-  --panel-hover: rgba(35, 29, 21, .8);
-  --gold: #d6ad54;
-  --gold-light: #f5e2a5;
-  --blue: #4c7fff;
-  --text: #f7f5ef;
-  --text-soft: rgba(247, 245, 239, .65);
-  --text-dim: rgba(247, 245, 239, .4);
-  --border: rgba(255, 255, 255, .12);
-  --title-font: "Space Grotesk", sans-serif;
-  --body-font: "Inter", sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  min-height: 100%;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  padding: 35px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow-x: hidden;
-  color: var(--text);
-  font-family: var(--body-font);
-  background: var(--bg);
-}
-
-/* INTRO SCREEN */
-.intro {
-  position: fixed;
-  inset: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(circle, rgba(214, 173, 84, .15), transparent 35%),
-    #060609;
-  transition: opacity .8s ease, visibility .8s ease;
-}
-
-.intro.hide {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.intro-content {
-  text-align: center;
-  animation: introZoom 1s cubic-bezier(.16, .8, .32, 1) both;
-}
-
-.intro-logo {
-  width: 105px;
-  height: 105px;
-  margin: 0 auto 20px;
-  display: grid;
-  place-items: center;
-  color: var(--gold-light);
-  border: 1px solid rgba(214, 173, 84, .6);
-  border-radius: 50%;
-  font: 700 2.4rem var(--title-font);
-  box-shadow: 0 0 40px rgba(214, 173, 84, .25);
-  animation: logoPulse 2s ease-in-out infinite;
-}
-
-.intro-title {
-  margin: 0;
-  color: var(--text);
-  letter-spacing: .2em;
-  font: 700 1.1rem var(--title-font);
-}
-
-.loader {
-  width: 130px;
-  height: 2px;
-  margin: 18px auto 0;
-  overflow: hidden;
-  background: rgba(255, 255, 255, .15);
-  border-radius: 100px;
-}
-
-.loader::after {
-  content: "";
-  display: block;
-  width: 45%;
-  height: 100%;
-  background: var(--gold);
-  box-shadow: 0 0 15px var(--gold);
-  animation: loading 1.4s ease-in-out infinite;
-}
-
-/* BACKGROUND */
-.background {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    linear-gradient(
-      120deg,
-      rgba(214, 173, 84, .05),
-      transparent 35%,
-      rgba(76, 127, 255, .06),
-      transparent 70%
-    );
-}
-
-.background::before {
-  content: "";
-  position: absolute;
-  inset: -30%;
-  background:
-    radial-gradient(
-      circle at 20% 20%,
-      rgba(214, 173, 84, .2),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 80% 75%,
-      rgba(76, 127, 255, .15),
-      transparent 30%
-    );
-  animation: backgroundMove 18s ease-in-out infinite alternate;
-}
-
-.background::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: .12;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
-  background-size: 70px 70px;
-}
-
-.orb {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  filter: blur(45px);
-  opacity: .25;
-  animation: orbFloat 18s ease-in-out infinite;
-}
-
-.orb.gold {
-  top: 7%;
-  left: -90px;
-  background: var(--gold);
-}
-
-.orb.blue {
-  right: -100px;
-  bottom: 8%;
-  background: var(--blue);
-  animation-delay: -7s;
-  animation-duration: 25s;
-}
-
-.orb.small {
-  left: 35%;
-  bottom: -160px;
-  width: 210px;
-  height: 210px;
-  background: var(--gold);
-  animation-delay: -12s;
-  animation-duration: 28s;
-}
-
-.particles {
-  position: absolute;
-  inset: 0;
-}
-
-.particle {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--gold-light);
-  box-shadow: 0 0 12px var(--gold);
-  animation: particleMove linear infinite;
-}
-
-.particle:nth-child(1) {
-  left: 8%;
-  top: 20%;
-  animation-duration: 9s;
-}
-
-.particle:nth-child(2) {
-  left: 25%;
-  top: 75%;
-  animation-duration: 13s;
-}
-
-.particle:nth-child(3) {
-  left: 42%;
-  top: 15%;
-  animation-duration: 11s;
-}
-
-.particle:nth-child(4) {
-  left: 65%;
-  top: 70%;
-  animation-duration: 15s;
-}
-
-.particle:nth-child(5) {
-  left: 82%;
-  top: 20%;
-  animation-duration: 10s;
-}
-
-.particle:nth-child(6) {
-  left: 92%;
-  top: 55%;
-  animation-duration: 17s;
-}
-
-/* KONTEN */
-.page {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 440px;
-  opacity: 0;
-  transform: translateY(25px);
-  animation: pageReveal 1s .8s forwards;
-}
-
-.profile {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 34px;
-  text-align: center;
-}
-
-.avatar {
-  width: 130px;
-  height: 130px;
-  margin-bottom: 20px;
-  padding: 4px;
-  border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    var(--gold),
-    var(--gold-light),
-    var(--blue),
-    var(--gold),
-    var(--gold-light),
-    var(--gold)
-  );
-  box-shadow: 0 0 35px rgba(214, 173, 84, .25);
-  animation:
-    avatarReveal 1s 1s both,
-    rotate 15s linear 2s infinite;
-}
-
-.avatar-inner {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  color: var(--gold-light);
-  background: #0e0e14;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  font: 700 2.5rem var(--title-font);
-}
-
-.name {
-  margin: 0;
-  font: 700 1.65rem var(--title-font);
-  animation: textReveal .8s 1.2s both;
-}
-
-.handle {
-  margin: 5px 0 0;
-  color: var(--gold);
-  font-size: .92rem;
-  font-weight: 600;
-  animation: textReveal .8s 1.35s both;
-}
-
-.tagline {
-  max-width: 280px;
-  margin: 10px 0 0;
-  color: var(--text-soft);
-  font-size: .9rem;
-  line-height: 1.5;
-  animation: textReveal .8s 1.5s both;
-}
-
-/* LINK CARD */
-.links {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 76px;
-  padding: 16px 18px;
-  overflow: hidden;
-  color: var(--text);
-  text-decoration: none;
-  background: var(--panel);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, .4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-  opacity: 0;
-  transform: translateY(25px) scale(.96);
-  animation: cardReveal .75s calc(1.7s + var(--i) * .14s) forwards;
-  transition: .3s ease;
-}
-
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    110deg,
-    transparent 20%,
-    rgba(255, 255, 255, .13) 50%,
-    transparent 80%
-  );
-  transform: translateX(-120%);
-  transition: transform .7s ease;
-}
-
-.card:hover::before {
-  transform: translateX(120%);
-}
-
-.card:hover {
-  transform: translateY(-5px) scale(1.025);
-  background: var(--panel-hover);
-  border-color: rgba(214, 173, 84, .65);
-  box-shadow:
-    0 18px 40px rgba(0, 0, 0, .5),
-    0 0 28px rgba(214, 173, 84, .15);
-}
-
-.card:active {
-  transform: scale(.98);
-}
-
-.icon {
-  position: relative;
-  z-index: 1;
-  width: 45px;
-  height: 45px;
-  flex-shrink: 0;
-  display: grid;
-  place-items: center;
-  color: var(--gold-light);
-  background: rgba(214, 173, 84, .18);
-  border-radius: 15px;
-  transition: transform .3s ease;
-}
-
-.card:hover .icon {
-  transform: rotate(-7deg) scale(1.1);
-}
-
-.icon svg {
-  width: 22px;
-  height: 22px;
-}
-
-.card-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.card-title {
-  font-size: .98rem;
-  font-weight: 600;
-}
-
-.card-subtitle {
-  color: var(--text-soft);
-  font-size: .82rem;
-}
-
-.arrow {
-  position: relative;
-  z-index: 1;
-  color: var(--text-dim);
-  font-size: 1.3rem;
-  transition: .3s ease;
-}
-
-.card:hover .arrow {
-  color: var(--gold);
-  transform: translateX(4px);
-}
-
-.footer {
-  margin-top: 32px;
-  color: var(--text-dim);
-  font-size: .76rem;
-  line-height: 1.6;
-  text-align: center;
-  animation: textReveal .8s 2.3s both;
-}
-
-.footer p {
-  margin: 0;
-}
-
-/* ANIMASI */
-@keyframes introZoom {
-  from {
-    opacity: 0;
-    transform: scale(.75);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes logoPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 30px rgba(214, 173, 84, .2);
-  }
-
-  50% {
-    transform: scale(1.06);
-    box-shadow: 0 0 50px rgba(214, 173, 84, .4);
-  }
-}
-
-@keyframes loading {
-  0% {
-    transform: translateX(-150%);
-  }
-
-  50%, 100% {
-    transform: translateX(300%);
-  }
-}
-
-@keyframes backgroundMove {
-  from {
-    transform: translate(-3%, -2%) scale(1);
-  }
-
-  to {
-    transform: translate(3%, 2%) rotate(5deg) scale(1.12);
-  }
-}
-
-@keyframes orbFloat {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(35px, -30px) scale(1.12);
-  }
-}
-
-@keyframes particleMove {
-  0% {
-    opacity: 0;
-    transform: translateY(35px) scale(.5);
-  }
-
-  20%, 80% {
-    opacity: .6;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translateY(-110px) scale(1.2);
-  }
-}
-
-@keyframes pageReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes avatarReveal {
-  from {
-    opacity: 0;
-    transform: scale(.7) rotate(-20deg);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes textReveal {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* MOBILE */
-@media (max-width: 360px) {
-  body {
-    padding-inline: 14px;
-  }
-
-  .avatar {
-    width: 108px;
-    height: 108px;
-  }
-
-  .name {
-    font-size: 1.4rem;
-  }
-}
-
-/* REDUCED MOTION */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
-  }
-
-  .intro {
-    display: none;
-  }
-
-  .page,
-  .card {
-    opacity: 1;
-    transform: none;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080808" />
+
+  <title>Verifikasi Keamanan</title>
+
+  <style>
+    :root {
+      --black: #080808;
+      --black-soft: #111111;
+      --panel: rgba(22, 22, 22, .88);
+      --gold: #d9a441;
+      --gold-light: #ffe08a;
+      --gold-dark: #9b6a13;
+      --white: #fffaf0;
+      --muted: #b7b0a1;
+      --line: rgba(217, 164, 65, .28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow: hidden;
+      color: var(--white);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(217, 164, 65, .16), transparent 34%),
+        radial-gradient(circle at 0% 100%, rgba(217, 164, 65, .10), transparent 30%),
+        var(--black);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      opacity: .08;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 90%);
+    }
+
+    .orb {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(50px);
+      opacity: .15;
+      background: var(--gold);
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+
+    .orb-one {
+      top: -150px;
+      right: -80px;
+    }
+
+    .orb-two {
+      bottom: -160px;
+      left: -100px;
+      animation-delay: -3s;
+    }
+
+    .card {
+      position: relative;
+      width: min(100%, 530px);
+      padding: 46px 34px 34px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.055), transparent 35%),
+        var(--panel);
+      box-shadow:
+        0 25px 90px rgba(0, 0, 0, .7),
+        0 0 60px rgba(217, 164, 65, .08),
+        inset 0 1px 0 rgba(255, 255, 255, .08);
+      backdrop-filter: blur(18px);
+      animation: cardIn .8s cubic-bezier(.2,.8,.2,1) both;
+    }
+
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-color: var(--gold);
+      opacity: .7;
+      pointer-events: none;
+    }
+
+    .card::before {
+      top: 18px;
+      left: 18px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+      border-radius: 12px 0 0 0;
+    }
+
+    .card::after {
+      right: 18px;
+      bottom: 18px;
+      border-right: 1px solid;
+      border-bottom: 1px solid;
+      border-radius: 0 0 12px 0;
+    }
+
+    .brand {
+      margin-bottom: 27px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .security-icon {
+      position: relative;
+      width: 94px;
+      height: 94px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 25px;
+      border: 1px solid rgba(217, 164, 65, .45);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(217,164,65,.2), transparent 66%),
+        #17130c;
+      box-shadow:
+        0 0 0 9px rgba(217, 164, 65, .045),
+        0 0 36px rgba(217, 164, 65, .18);
+      animation: iconPulse 3s ease-in-out infinite;
+    }
+
+    .security-icon::before {
+      content: "";
+      position: absolute;
+      inset: -9px;
+      border: 1px dashed rgba(217, 164, 65, .32);
+      border-radius: 50%;
+      animation: rotate 12s linear infinite;
+    }
+
+    .shield {
+      position: relative;
+      width: 33px;
+      height: 40px;
+      border: 3px solid var(--gold-light);
+      border-radius: 48% 48% 54% 54%;
+      clip-path: polygon(50% 0, 94% 15%, 88% 64%, 50% 100%, 12% 64%, 6% 15%);
+      background: linear-gradient(145deg, rgba(255,224,138,.25), transparent);
+    }
+
+    .shield::after {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 7px;
+      left: 6px;
+      top: 12px;
+      border-left: 3px solid var(--gold-light);
+      border-bottom: 3px solid var(--gold-light);
+      transform: rotate(-45deg);
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      color: var(--white);
+      font-size: clamp(26px, 6vw, 34px);
+      letter-spacing: -.8px;
+    }
+
+    .subtitle {
+      max-width: 400px;
+      margin: 0 auto 27px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    .divider {
+      width: 80px;
+      height: 2px;
+      margin: 0 auto 27px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .continue-button {
+      position: relative;
+      width: 100%;
+      min-height: 61px;
+      overflow: hidden;
+      border: 1px solid var(--gold-light);
+      border-radius: 13px;
+      color: #171008;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold), #b47b1d);
+      box-shadow:
+        0 10px 25px rgba(217, 164, 65, .22),
+        inset 0 1px 0 rgba(255,255,255,.55);
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+    }
+
+    .continue-button:disabled {
+      filter: grayscale(0.5) brightness(0.8);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .continue-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 70%;
+      height: 100%;
+      transform: skewX(-22deg);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, .55),
+        transparent
+      );
+      transition: left .7s ease;
+    }
+
+    .continue-button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+      box-shadow:
+        0 16px 32px rgba(217, 164, 65, .30),
+        0 0 22px rgba(217, 164, 65, .18);
+    }
+
+    .continue-button:hover::before {
+      left: 145%;
+    }
+
+    .continue-button:active {
+      transform: translateY(0) scale(.98);
+    }
+
+    .continue-button:focus-visible {
+      outline: 3px solid var(--white);
+      outline-offset: 4px;
+    }
+
+    .button-content {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+    }
+
+    .arrow {
+      font-size: 23px;
+      transition: transform .2s ease;
+    }
+
+    .continue-button:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    .spinner {
+      display: none;
+      width: 19px;
+      height: 19px;
+      border: 3px solid rgba(0,0,0,.28);
+      border-top-color: #171008;
+      border-radius: 50%;
+      animation: spin .75s linear infinite;
+    }
+
+    .loading {
+      pointer-events: none;
+      filter: brightness(.92);
+    }
+
+    .loading .spinner {
+      display: inline-block;
+    }
+
+    .loading .button-text {
+      font-size: 0;
+    }
+
+    .loading .button-text::after {
+      content: "Memverifikasi...";
+      font-size: 18px;
+    }
+
+    .loading .arrow {
+      display: none;
+    }
+
+    .status {
+      min-height: 21px;
+      margin-top: 17px;
+      color: var(--gold-light);
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+
+    .status.show {
+      opacity: 1;
+    }
+
+    .status.error {
+      color: #ff4d4d;
+    }
+
+    .notice {
+      margin-top: 22px;
+      color: #8e887c;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .notice a {
+      color: var(--gold-light);
+      text-decoration: none;
+    }
+
+    .notice a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-mark {
+      margin-top: 27px;
+      color: #6d675d;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    @keyframes cardIn {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes iconPulse {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow:
+          0 0 0 9px rgba(217, 164, 65, .045),
+          0 0 36px rgba(217, 164, 65, .18);
+      }
+      50% {
+        transform: scale(1.045);
+        box-shadow:
+          0 0 0 14px rgba(217, 164, 65, .025),
+          0 0 48px rgba(217, 164, 65, .28);
+      }
+    }
+
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% {
+        transform: translate(0, 0);
+      }
+      50% {
+        transform: translate(18px, -25px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        padding: 37px 22px 28px;
+        border-radius: 22px;
+      }
+
+      .brand {
+        font-size: 10px;
+        letter-spacing: 3px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
 
-<div class="intro" id="intro">
-  <div class="intro-content">
-    <div class="intro-logo">K</div>
-    <h2 class="intro-title">KARTEL69</h2>
-    <div class="loader"></div>
-  </div>
-</div>
+  <main class="card" aria-labelledby="pageTitle">
+    <div class="brand">Secure Access</div>
 
-<div class="background">
-  <div class="orb gold"></div>
-  <div class="orb blue"></div>
-  <div class="orb small"></div>
-
-  <div class="particles">
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-    <span class="particle"></span>
-  </div>
-</div>
-
-<main class="page">
-
-  <header class="profile">
-    <div class="avatar">
-      <div class="avatar-inner" id="avatar">K</div>
+    <div class="security-icon" aria-hidden="true">
+      <div class="shield"></div>
     </div>
 
-    <h1 class="name" id="brandName">KARTEL69</h1>
-    <p class="handle" id="username">@kartel69</p>
-    <p class="tagline" id="tagline">OFFICIAL KARTEL 69</p>
-  </header>
+    <h1 id="pageTitle">Verifikasi Keamanan</h1>
 
-  <nav class="links" aria-label="Official links">
+    <p class="subtitle">
+      Pastikan Anda adalah pengguna yang sah untuk melanjutkan
+      ke halaman berikutnya.
+    </p>
 
-    <a class="card" style="--i:0" id="whatsappLink" href="#" target="_blank" rel="noopener">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-          <path d="M4 12c0-4.4 3.8-8 8.4-8 4.6 0 8.4 3.6 8.4 8 0 4.4-3.8 8-8.4 8-1 0-2-.15-2.9-.45L5 21l1.3-3.9C4.8 15.8 4 14 4 12z"/>
-          <circle cx="8.7" cy="12" r=".9" fill="currentColor"/>
-          <circle cx="12.4" cy="12" r=".9" fill="currentColor"/>
-          <circle cx="16.1" cy="12" r=".9" fill="currentColor"/>
-        </svg>
+    <div class="divider"></div>
+
+    <!-- HONEYPOT FIELDS: Multiple hidden fields to catch bots -->
+    <input type="text" id="honeypot-website" name="website" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="text" id="honeypot-email" name="email" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="text" id="honeypot-phone" name="phone" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <input type="text" id="honeypot-username" name="username" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <button
+      class="continue-button"
+      id="continueButton"
+      type="button"
+      aria-label="Melanjutkan proses verifikasi"
+    >
+      <span class="button-content">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="button-text">Melanjutkan</span>
+        <span class="arrow" aria-hidden="true">→</span>
       </span>
+    </button>
 
-      <span class="card-content">
-        <span class="card-title">WhatsApp Group</span>
-        <span class="card-subtitle">Join our official community</span>
-      </span>
+    <div
+      class="status"
+      id="statusMessage"
+      role="status"
+      aria-live="polite"
+    >
+      Verifikasi berhasil. Mengarahkan Anda...
+    </div>
 
-      <span class="arrow">›</span>
-    </a>
+    <p class="notice">
+      Dengan melanjutkan, Anda menyetujui
+      <a href="#">Kebijakan Privasi</a>
+      dan
+      <a href="#">Persyaratan Layanan</a>.
+    </p>
 
-    <a class="card" style="--i:1" id="websiteLink" href="#" target="_blank" rel="noopener">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-          <circle cx="12" cy="12" r="9"/>
-          <path d="M3 12h18"/>
-          <path d="M12 3c2.5 2.6 3.8 5.8 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.8-3.8-9s1.3-6.4 3.8-9z"/>
-        </svg>
-      </span>
+    <div class="footer-mark">Protected Connection</div>
+  </main>
 
-      <span class="card-content">
-        <span class="card-title">Official Website</span>
-        <span class="card-subtitle">Visit our official website</span>
-      </span>
+  <!-- Canvas untuk fingerprinting (tersembunyi) -->
+  <canvas id="fingerprintCanvas" style="display:none;" width="200" height="50"></canvas>
 
-      <span class="arrow">›</span>
-    </a>
+  <script>
+    const TUJUAN_URL = "https://dp69-ads2.com/register?referral=jojos77";
 
-    <a class="card" style="--i:2" id="adminLink" href="#" target="_blank" rel="noopener">
-      <span class="icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-          <path d="M4 13v-1a8 8 0 0 1 16 0v1"/>
-          <rect x="3" y="13" width="4" height="6" rx="1.5"/>
-          <rect x="17" y="13" width="4" height="6" rx="1.5"/>
-          <path d="M20 19v1a3 3 0 0 1-3 3h-3"/>
-        </svg>
-      </span>
+    const button = document.getElementById("continueButton");
+    const statusMessage = document.getElementById("statusMessage");
+    const honeypots = [
+      document.getElementById("honeypot-website"),
+      document.getElementById("honeypot-email"),
+      document.getElementById("honeypot-phone"),
+      document.getElementById("honeypot-username")
+    ];
 
-      <span class="card-content">
-        <span class="card-title">Admin Contact</span>
-        <span class="card-subtitle">Contact our admin</span>
-      </span>
+    // === TRACKING VARIABLES ===
+    const pageLoadTime = Date.now();
+    const mouseMovements = [];
+    const keyPressTimes = [];
+    const touchEvents = [];
+    let hasMouseMovement = false;
+    let hasKeyboardInteraction = false;
+    let hasTouchInteraction = false;
+    let mouseEnterTime = null;
 
-      <span class="arrow">›</span>
-    </a>
+    // === MOUSE TRACKING ===
+    document.addEventListener('mousemove', function(e) {
+      hasMouseMovement = true;
+      const now = Date.now();
+      mouseMovements.push({
+        x: e.clientX,
+        y: e.clientY,
+        time: now - pageLoadTime,
+        timestamp: now
+      });
+      
+      // Batasi array agar tidak terlalu besar
+      if (mouseMovements.length > 100) {
+        mouseMovements.shift();
+      }
+    });
 
-  </nav>
+    // Track mouse enter pada button
+    button.addEventListener('mouseenter', function() {
+      mouseEnterTime = Date.now();
+    });
 
-  <footer class="footer">
-    <p>© 2026 <span id="footerName">KARTEL69</span>. All rights reserved.</p>
-    <p>Powered by <span id="footerNameTwo">KARTEL69</span></p>
-  </footer>
+    // === KEYBOARD TRACKING ===
+    document.addEventListener('keydown', function(e) {
+      hasKeyboardInteraction = true;
+      keyPressTimes.push(Date.now() - pageLoadTime);
+      
+      if (keyPressTimes.length > 50) {
+        keyPressTimes.shift();
+      }
+    });
 
-</main>
+    // === TOUCH TRACKING ===
+    document.addEventListener('touchstart', function(e) {
+      hasTouchInteraction = true;
+      touchEvents.push({
+        time: Date.now() - pageLoadTime,
+        touches: e.touches.length
+      });
+      
+      if (touchEvents.length > 50) {
+        touchEvents.shift();
+      }
+    });
 
-<script>
-const CONFIG = {
-  brandName: "KARTEL69",
-  username: "@kartel69",
-  tagline: "OFFICIAL KARTEL 69",
+    document.addEventListener('touchmove', function(e) {
+      hasTouchInteraction = true;
+    });
 
-  avatarInitial: "K",
-  avatarImageUrl: "",
+    // === SCROLL TRACKING ===
+    let hasScrollInteraction = false;
+    document.addEventListener('scroll', function() {
+      hasScrollInteraction = true;
+    }, { passive: true });
 
-  whatsappGroupUrl: "https://chat.whatsapp.com/BYxn2Qy1LeRE9d7QaidfSh?s=cl&p=a&mlu=4&ilr=4",
-  websiteUrl: "https://pafimalang.org/register?referral=muklis6969",
+    // === CANVAS FINGERPRINTING ===
+    function getCanvasFingerprint() {
+      try {
+        const canvas = document.getElementById('fingerprintCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Render text dengan berbagai properti
+        ctx.textBaseline = 'top';
+        ctx.font = '14px Arial';
+        ctx.fillStyle = '#f60';
+        ctx.fillRect(0, 0, 100, 50);
+        ctx.fillStyle = '#069';
+        ctx.fillText('🔒 Security Check', 2, 15);
+        ctx.fillStyle = 'rgba(102, 204, 0, 0.7)';
+        ctx.fillText('🔒 Security Check', 4, 17);
+        
+        // Dapatkan data pixel untuk fingerprint
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+        
+        // Hitung hash sederhana
+        let hash = 0;
+        for (let i = 0; i < data.length; i += 4) {
+          hash = ((hash << 5) - hash) + data[i] + data[i+1] + data[i+2];
+          hash = hash & hash;
+        }
+        
+        return hash.toString(16);
+      } catch (e) {
+        return 'error';
+      }
+    }
 
-  adminWhatsappNumber: "0855762143850",
-  adminWhatsappMessage: "Halo, saya ingin mengetahui lebih lanjut tentang KARTEL69."
-};
+    // === DETEKSI HEADLESS BROWSER ===
+    function detectHeadlessBrowser() {
+      const checks = {
+        // Cek webdriver
+        webdriver: navigator.webdriver === true,
+        
+        // Cek properties yang biasanya tidak ada di browser normal
+        phantom: typeof window._phantom !== 'undefined',
+        callPhantom: typeof window.callPhantom === 'function',
+        
+        // Cek apakah ini Selenium
+        selenium: (function() {
+          const drivers = ['__webdriver_evaluate', '__selenium_evaluate', '__fxdriver_evaluate',
+                          '__driver_unwrapped', '__webdriver_unwrapped', '__driver_evaluate',
+                          '__selenium_unwrapped', '__fxdriver_unwrapped'];
+          return drivers.some(prop => prop in document);
+        })(),
+        
+        // Cek apakah ini Puppeteer
+        puppeteer: (function() {
+          try {
+            return Object.keys(window).some(key => 
+              key.includes('puppeteer') || key.includes('devtools')
+            );
+          } catch (e) {
+            return false;
+          }
+        })(),
+        
+        // Cek console debug (headless browsers sering punya quirks)
+        chrome: navigator.userAgent.includes('Chrome') && 
+                !navigator.userAgent.includes('HeadlessChrome'),
+        
+        // Cek plugins (bot biasanya tidak punya plugins)
+        noPlugins: navigator.plugins.length === 0 && 
+                   navigator.userAgent.includes('Chrome'),
+        
+        // Cek languages (bot sering tidak set ini)
+        noLanguages: !navigator.languages || navigator.languages.length === 0,
+        
+        // Cek timezone
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone === 'UTC' &&
+                  navigator.userAgent.includes('Chrome'),
+      };
+      
+      // Hitung skor kecurigaan
+      const suspiciousCount = Object.values(checks).filter(v => v).length;
+      return {
+        checks,
+        isSuspicious: suspiciousCount >= 2,
+        score: suspiciousCount
+      };
+    }
 
-const brandName = document.getElementById("brandName");
-const username = document.getElementById("username");
-const tagline = document.getElementById("tagline");
-const avatar = document.getElementById("avatar");
+    // === ANALISIS POLA MOUSE ===
+    function analyzeMousePattern() {
+      if (mouseMovements.length < 3) {
+        return { isHuman: false, reason: 'Too few movements' };
+      }
+      
+      // Hitung variasi kecepatan (manusia punya variasi, bot linear)
+      const speeds = [];
+      for (let i = 1; i < mouseMovements.length; i++) {
+        const dx = mouseMovements[i].x - mouseMovements[i-1].x;
+        const dy = mouseMovements[i].y - mouseMovements[i-1].y;
+        const dt = mouseMovements[i].time - mouseMovements[i-1].time;
+        
+        if (dt > 0) {
+          speeds.push(Math.sqrt(dx*dx + dy*dy) / dt);
+        }
+      }
+      
+      if (speeds.length < 2) {
+        return { isHuman: false, reason: 'Cannot calculate speed variance' };
+      }
+      
+      // Hitung standar deviasi kecepatan
+      const avgSpeed = speeds.reduce((a, b) => a + b, 0) / speeds.length;
+      const variance = speeds.reduce((a, b) => a + Math.pow(b - avgSpeed, 2), 0) / speeds.length;
+      const stdDev = Math.sqrt(variance);
+      
+      // Manusia punya variasi kecepatan yang signifikan
+      const hasNaturalVariation = stdDev > 0.5 || avgSpeed > 5;
+      
+      return {
+        isHuman: hasNaturalVariation,
+        avgSpeed,
+        stdDev,
+        reason: hasNaturalVariation ? 'Natural variation detected' : 'Too linear movement'
+      };
+    }
 
-brandName.textContent = CONFIG.brandName;
-username.textContent = CONFIG.username;
-tagline.textContent = CONFIG.tagline;
+    // === SCREEN/BROWSER CONSISTENCY CHECK ===
+    function checkScreenConsistency() {
+      const ua = navigator.userAgent.toLowerCase();
+      const isMobile = /mobile|android|iphone|ipad/i.test(ua);
+      const isTablet = /tablet|ipad/i.test(ua);
+      const isDesktop = !isMobile && !isTablet;
+      
+      const screenWidth = window.screen.width;
+      const screenHeight = window.screen.height;
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+      
+      const issues = [];
+      
+      // Cek konsistensi resolusi
+      if (isDesktop && (screenWidth < 800 || screenHeight < 600)) {
+        issues.push('Unusual desktop resolution');
+      }
+      
+      if (isMobile && (screenWidth > 500 || screenHeight > 900)) {
+        issues.push('Resolution inconsistent with mobile UA');
+      }
+      
+      // Cek apakah window size masuk akal
+      if (windowWidth > screenWidth || windowHeight > screenHeight) {
+        issues.push('Window larger than screen');
+      }
+      
+      return {
+        isConsistent: issues.length === 0,
+        issues,
+        screen: { width: screenWidth, height: screenHeight },
+        window: { width: windowWidth, height: windowHeight }
+      };
+    }
 
-document.getElementById("footerName").textContent = CONFIG.brandName;
-document.getElementById("footerNameTwo").textContent = CONFIG.brandName;
-document.title = `${CONFIG.brandName} — Official Links`;
+    // === FUNGSI DETEKSI BOT UTAMA ===
+    function isBot(event) {
+      const detectionResults = {
+        honeypot: false,
+        eventTrusted: true,
+        webdriver: false,
+        languages: true,
+        timing: true,
+        interaction: true,
+        headless: { isSuspicious: false, score: 0 },
+        mousePattern: { isHuman: true },
+        screenConsistency: { isConsistent: true },
+        canvas: true
+      };
+      
+      // 1. Cek Honeypot
+      const honeypotFilled = honeypots.some(hp => hp && hp.value !== "");
+      detectionResults.honeypot = honeypotFilled;
+      if (honeypotFilled) {
+        console.warn("🚨 Bot terdeteksi: Honeypot terisi.");
+        return { isBot: true, reason: 'honeypot', details: detectionResults };
+      }
 
-if (CONFIG.avatarImageUrl) {
-  avatar.style.backgroundImage = `url("${CONFIG.avatarImageUrl}")`;
-  avatar.style.backgroundSize = "cover";
-  avatar.style.backgroundPosition = "center";
-  avatar.textContent = "";
-} else {
-  avatar.textContent = CONFIG.avatarInitial;
-}
+      // 2. Cek event trustworthiness
+      if (event && !event.isTrusted) {
+        detectionResults.eventTrusted = false;
+        console.warn("🚨 Bot terdeteksi: Klik tidak terpercaya (isTrusted=false).");
+        return { isBot: true, reason: 'untrusted_event', details: detectionResults };
+      }
 
-document.getElementById("whatsappLink").href =
-  CONFIG.whatsappGroupUrl;
+      // 3. Cek WebDriver
+      if (navigator.webdriver) {
+        detectionResults.webdriver = true;
+        console.warn("🚨 Bot terdeteksi: WebDriver aktif.");
+        return { isBot: true, reason: 'webdriver', details: detectionResults };
+      }
 
-document.getElementById("websiteLink").href =
-  CONFIG.websiteUrl;
+      // 4. Cek bahasa browser
+      if (!navigator.languages || navigator.languages.length === 0) {
+        detectionResults.languages = false;
+        console.warn("🚨 Bot terdeteksi: Tidak ada preferensi bahasa.");
+        return { isBot: true, reason: 'no_languages', details: detectionResults };
+      }
 
-const adminNumber = CONFIG.adminWhatsappNumber.replace(/\D/g, "");
-const adminMessage = CONFIG.adminWhatsappMessage
-  ? `?text=${encodeURIComponent(CONFIG.adminWhatsappMessage)}`
-  : "";
+      // 5. Cek waktu minimum (terlalu cepat = bot)
+      const timeElapsed = Date.now() - pageLoadTime;
+      if (timeElapsed < 1500) {
+        detectionResults.timing = false;
+        console.warn("🚨 Bot terdeteksi: Klik terlalu cepat (" + timeElapsed + "ms).");
+        return { isBot: true, reason: 'too_fast', details: detectionResults };
+      }
 
-document.getElementById("adminLink").href =
-  `https://wa.me/${adminNumber}${adminMessage}`;
+      // 6. Cek interaksi minimal (harus ada minimal 1 jenis interaksi)
+      const hasAnyInteraction = hasMouseMovement || hasKeyboardInteraction || 
+                                hasTouchInteraction || hasScrollInteraction;
+      if (!hasAnyInteraction) {
+        detectionResults.interaction = false;
+        console.warn("🚨 Bot terdeteksi: Tidak ada interaksi sama sekali.");
+        return { isBot: true, reason: 'no_interaction', details: detectionResults };
+      }
 
-/* Intro screen */
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("intro").classList.add("hide");
-  }, 1500);
-});
+      // 7. Deteksi headless browser
+      const headlessCheck = detectHeadlessBrowser();
+      detectionResults.headless = headlessCheck;
+      if (headlessCheck.isSuspicious) {
+        console.warn("🚨 Bot terdeteksi: Headless browser (score: " + headlessCheck.score + ")");
+        return { isBot: true, reason: 'headless_browser', details: detectionResults };
+      }
 
-/* Efek ripple */
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("click", function(event) {
-    const rect = this.getBoundingClientRect();
-    const ripple = document.createElement("span");
+      // 8. Analisis pola mouse (jika ada data cukup)
+      if (mouseMovements.length >= 3) {
+        const mouseAnalysis = analyzeMousePattern();
+        detectionResults.mousePattern = mouseAnalysis;
+        if (!mouseAnalysis.isHuman) {
+          console.warn("🚨 Bot terdeteksi: Pola mouse tidak natural - " + mouseAnalysis.reason);
+          return { isBot: true, reason: 'unnatural_mouse', details: detectionResults };
+        }
+      }
 
-    ripple.style.position = "absolute";
-    ripple.style.left = `${event.clientX - rect.left}px`;
-    ripple.style.top = `${event.clientY - rect.top}px`;
-    ripple.style.width = "10px";
-    ripple.style.height = "10px";
-    ripple.style.borderRadius = "50%";
-    ripple.style.background = "rgba(245, 226, 165, .5)";
-    ripple.style.pointerEvents = "none";
-    ripple.style.transform = "translate(-50%, -50%) scale(0)";
-    ripple.style.animation = "ripple .7s ease-out forwards";
+      // 9. Cek konsistensi screen/browser
+      const screenCheck = checkScreenConsistency();
+      detectionResults.screenConsistency = screenCheck;
+      if (!screenCheck.isConsistent) {
+        console.warn("🚨 Bot terdeteksi: Inkonsistensi screen/browser - " + screenCheck.issues.join(', '));
+        return { isBot: true, reason: 'screen_inconsistency', details: detectionResults };
+      }
 
-    this.appendChild(ripple);
+      // 10. Canvas fingerprint (untuk deteksi headless)
+      const canvasFp = getCanvasFingerprint();
+      detectionResults.canvas = canvasFp !== 'error';
+      if (canvasFp === 'error') {
+        console.warn("⚠️ Warning: Canvas rendering error (mungkin headless)");
+      }
 
-    setTimeout(() => {
-      ripple.remove();
-    }, 700);
-  });
-});
+      // Jika lolos semua pengecekan
+      console.log("✅ Verifikasi berhasil - User terlihat seperti manusia");
+      return { isBot: false, reason: 'passed', details: detectionResults };
+    }
 
-/* Parallax ringan */
-const page = document.querySelector(".page");
+    // === EVENT LISTENER UNTUK BUTTON ===
+    button.addEventListener("click", function (event) {
+      const detection = isBot(event);
+      
+      if (detection.isBot) {
+        // Tampilkan pesan error
+        statusMessage.textContent = "⛔ Akses ditolak. Aktivitas mencurigakan terdeteksi.";
+        statusMessage.classList.add("show", "error");
+        
+        // Alihkan bot ke Google setelah 2 detik
+        setTimeout(() => {
+          window.location.href = "https://www.google.com"; 
+        }, 2000);
+        return;
+      }
 
-if (window.matchMedia("(pointer: fine)").matches) {
-  document.addEventListener("mousemove", (event) => {
-    const x = (event.clientX / window.innerWidth - .5) * 2;
-    const y = (event.clientY / window.innerHeight - .5) * 2;
+      // === JIKA LOLOS PENGECEKAN (MANUSIA ASLI) ===
+      button.classList.add("loading");
+      statusMessage.classList.add("show");
+      statusMessage.classList.remove("error");
+      statusMessage.textContent = "✅ Verifikasi berhasil. Mengarahkan Anda...";
 
-    page.style.transform =
-      `perspective(1000px) rotateY(${x * 1.2}deg) rotateX(${y * -1.2}deg)`;
-  });
+      // Waktu animasi sebelum berpindah halaman
+      setTimeout(function () {
+        window.location.href = TUJUAN_URL;
+      }, 1600);
+    });
 
-  document.addEventListener("mouseleave", () => {
-    page.style.transform =
-      "perspective(1000px) rotateY(0deg) rotateX(0deg)";
-  });
-}
-</script>
+    // === LOGGING UNTUK DEBUGGING (opsional, bisa dihapus di production) ===
+    window.addEventListener('load', function() {
+      console.log("🔒 Security Page Loaded");
+      console.log("📊 Detection ready - Mouse movements:", mouseMovements.length);
+      console.log("🎨 Canvas fingerprint:", getCanvasFingerprint());
+      console.log("🖥️ Screen consistency:", checkScreenConsistency());
+    });
 
-<style>
-@keyframes ripple {
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(35);
-  }
-}
-</style>
-
+    // Log status setiap 5 detik (untuk monitoring)
+    setInterval(function() {
+      if (window.location.href.includes(window.location.origin)) {
+        console.log("📈 Status:", {
+          mouseMovements: mouseMovements.length,
+          keyPresses: keyPressTimes.length,
+          touchEvents: touchEvents.length,
+          hasInteraction: hasMouseMovement || hasKeyboardInteraction || hasTouchInteraction
+        });
+      }
+    }, 5000);
+  </script>
 </body>
 </html>
